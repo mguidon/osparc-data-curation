@@ -1,0 +1,181 @@
+{
+    "id": 72,
+    "type": "STANDARD",
+    "uuid": "a2241cb4-8df9-11e9-96ef-02420aff2a5c",
+    "name": "Curation",
+    "description": "Example project for curation workflow",
+    "thumbnail": "",
+    "prj_ownwer": "guidon@itis.swiss",
+    "creation_date": "2019-06-13 16:38:11.815",
+    "last_changed_date": "2019-06-13 16:41:21.701",
+    "workbench": {
+        "48a16fba-e4fd-4dbb-97e4-d59dbec19a25": {
+            "key": "simcore/services/frontend/file-picker",
+            "version": "1.0.0",
+            "label": "File Picker",
+            "inputs": {},
+            "inputNodes": [],
+            "outputNode": false,
+            "outputs": {
+                "outFile": {
+                    "store": 1,
+                    "path": "Shared Data/initial_WStates"
+                }
+            },
+            "progress": 100,
+            "thumbnail": "",
+            "position": {
+                "x": 91,
+                "y": 53
+            }
+        },
+        "a332d124-787a-4961-8764-ea2d3996fa68": {
+            "key": "simcore/services/comp/ucdavis-singlecell-cardiac-model",
+            "version": "1.0.0",
+            "label": "UCDavis singlecell cardiac model",
+            "inputs": {
+                "Na": 0,
+                "Kr": 0,
+                "BCL": 200,
+                "NBeats": 5,
+                "Ligand": 0,
+                "cAMKII": "WT",
+                "initfile": {
+                    "nodeUuid": "48a16fba-e4fd-4dbb-97e4-d59dbec19a25",
+                    "output": "outFile"
+                }
+            },
+            "inputNodes": [
+                "48a16fba-e4fd-4dbb-97e4-d59dbec19a25"
+            ],
+            "outputNode": false,
+            "outputs": {
+                "out_3": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/a332d124-787a-4961-8764-ea2d3996fa68/finalStates.txt"
+                },
+                "out_4": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/a332d124-787a-4961-8764-ea2d3996fa68/vm_1Hz.txt"
+                },
+                "out_1": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/a332d124-787a-4961-8764-ea2d3996fa68/allresult_1Hz.txt"
+                },
+                "out_2": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/a332d124-787a-4961-8764-ea2d3996fa68/apds_1Hz.txt"
+                }
+            },
+            "progress": 100,
+            "thumbnail": "",
+            "position": {
+                "x": 421,
+                "y": 188
+            }
+        },
+        "456fa260-e611-4fbb-8614-17ccf15e0075": {
+            "key": "simcore/services/dynamic/cc-0d-viewer",
+            "version": "2.8.0",
+            "label": "cc-0d-viewer",
+            "inputs": {
+                "vm_1Hz": {
+                    "nodeUuid": "a332d124-787a-4961-8764-ea2d3996fa68",
+                    "output": "out_4"
+                },
+                "all_results_1Hz": {
+                    "nodeUuid": "a332d124-787a-4961-8764-ea2d3996fa68",
+                    "output": "out_1"
+                }
+            },
+            "inputNodes": [
+                "a332d124-787a-4961-8764-ea2d3996fa68"
+            ],
+            "outputNode": false,
+            "outputs": {
+                "out_1": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/Membrane_Potential.csv"
+                },
+                "out_2": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/I_ca.csv"
+                },
+                "out_3": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/Ca_SRT.csv"
+                },
+                "out_4": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/Ca_Dyad.csv"
+                },
+                "out_5": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/Ca_sl.csv"
+                },
+                "out_6": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/Ca_i.csv"
+                },
+                "out_7": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/I_to.csv"
+                },
+                "out_8": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/I_Na.csv"
+                },
+                "out_9": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/I_Ks.csv"
+                },
+                "out_10": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/I_CFTR.csv"
+                },
+                "out_11": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/I_Kr.csv"
+                },
+                "out_12": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/I_K1.csv"
+                },
+                "out_13": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/Na_j.csv"
+                },
+                "out_14": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/Na_s.csv"
+                },
+                "out_15": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/Na_i.csv"
+                },
+                "out_16": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/I_NCX.csv"
+                },
+                "out_17": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/JRyR_tot.csv"
+                },
+                "out_18": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/Passive_Leak.csv"
+                },
+                "out_19": {
+                    "store": "0",
+                    "path": "a2241cb4-8df9-11e9-96ef-02420aff2a5c/456fa260-e611-4fbb-8614-17ccf15e0075/SR_Ca_realease.csv"
+                }
+            },
+            "progress": 100,
+            "thumbnail": "",
+            "position": {
+                "x": 694,
+                "y": 38
+            }
+        }
+    }
+}
