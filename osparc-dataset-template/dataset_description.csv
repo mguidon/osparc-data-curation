@@ -1,0 +1,20 @@
+Name,Curation
+Description,Example project for curation workflow
+Keywords,neuron,cardiac
+Contributors,John Doe,Jane Doe
+Contributor ORCID ID
+Contributor Affiliation
+Contributor Role,PrincipleInvestigator,"Creator, Contact Person"
+Is Contact Person,False,True
+Acknowledgements,We would like to thank Jim Doe for being helpful
+Funding,NIH-1234,EU-5678
+Originating Article DOI,10.1000/xyz123,10.1000/abc987
+Protocol URL or DOI,None
+Additional Links,docs.anyhwe.re,sim.anywhe.re
+Link Description,Documentation for simulation,Simulation setup
+Example image filename,Figure.png
+Example image locator,docs/Figure.png
+Example image description,Figure shows the simulation results
+Completeness of dataset, 
+Prior batch number,Example project for curation workflow
+Title of the complete data set,Curation workflow example simcore dataset

@@ -1,8 +1,10 @@
 from blackfynn import Blackfynn
 from blackfynn.models import Collection
+from dataset_description import DatasetDescriptor
 import datcore as dc
 from pathlib import Path
-
+import csv
+from datetime import date
 import os
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -17,7 +19,28 @@ client.delete_files(ds)
 study_name = "osparc-dataset-template"
 
 study_folder = Path(dir_path).parent / Path(study_name)
+study_file = Path(study_folder) / Path("study/project.json")
 
+
+def submission(root_folder):
+    filename = Path(root_folder) / Path("submission.csv")
+    with open(str(filename), 'w') as f:
+        writer = csv.writer(f, delimiter=',')
+        writer.writerow(["SPARC Award number", "OT3OD025348"])
+        writer.writerow(["Milestone achieved", "Milestone 0.0.1"])
+        writer.writerow(["Milestone completion date", date.today()] )
+        
+def dataset_description(root_folder, study_file):
+    filename = Path(root_folder) / Path("dataset_description.csv")
+    dd = DatasetDescriptor()
+    dd.from_study_file(study_file)
+    dd.dump_to_csv(filename)
+
+
+submission(study_folder)
+dataset_description(study_folder, study_file)
+
+aa
 def recursive_upload(destination, files):
     dirs = [f for f in files if os.path.isdir(f)]
     files = [f for f in files if os.path.isfile(f)]

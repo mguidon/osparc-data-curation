@@ -8,6 +8,54 @@
     "prj_ownwer": "guidon@itis.swiss",
     "creation_date": "2019-06-13 16:38:11.815",
     "last_changed_date": "2019-06-13 16:41:21.701",
+    "title_for_complete_dataset": "Curation workflow example simcore dataset",
+    "keywords": [
+        "neuron",
+        "cardiac"
+    ],
+    "contributors": [
+        "John Doe",
+        "Jane Doe"
+    ],
+    "contributors_orchid_ids": [
+        "0000-1111-2222-3333",
+        "None"
+    ],
+    "contributors_affiliations": [
+        "ACME 1",
+        "ACME 2"
+    ],
+    "contributor_roles": [
+        "PrincipleInvestigator",
+        "Creator, Contact Person"
+    ],
+    "contributor_is_contact_persons": [
+        false,
+        true
+    ],
+    "acknowledgement": "We would like to thank Jim Doe for being helpful",
+    "fundings": [
+        "NIH-1234",
+        "EU-5678"
+    ],
+    "originating_article_dois": [
+        "10.1000/xyz123",
+        "10.1000/abc987"
+    ],
+    "protocol_url_or_dois": [
+        "None"
+    ],
+    "additional_links": [
+        "docs.anyhwe.re",
+        "sim.anywhe.re"
+    ],
+    "link_descriptions": [
+        "Documentation for simulation",
+        "Simulation setup"
+    ],
+    "example_image_filename": "Figure.png",
+    "example_image_locator": "docs/Figure.png",
+    "example_image_description": "Figure shows the simulation results",
     "workbench": {
         "48a16fba-e4fd-4dbb-97e4-d59dbec19a25": {
             "key": "simcore/services/frontend/file-picker",
