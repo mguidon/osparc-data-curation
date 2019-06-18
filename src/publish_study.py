@@ -1,14 +1,15 @@
 import csv
 import json
 import os
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 from blackfynn import Blackfynn
 from blackfynn.models import Collection
 
 import datcore as dc
-from dataset_description import DatasetDescriptor
+from dataset_descriptor import DatasetDescriptor
+from file_descriptor import FileDescriptors, FileDescriptor
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 api_token = os.environ.get("BF_API_KEY", "none")
@@ -24,6 +25,7 @@ study_name = "osparc-dataset-template"
 study_folder = Path(dir_path).parent / Path(study_name)
 study_file = Path(study_folder) / Path("study/project.json")
 files_folder = study_folder / Path("files")
+docs_folder = study_folder / Path("docs")
 
 
 def submission(root_folder: Path):
@@ -51,21 +53,42 @@ def files_manifest(study_fle: Path, files_folder: Path):
             # parse current node and search for outputfiles, add metadata for it in the nodes schema
             n = workbench[node]
             node_id = node
+            fd = FileDescriptors()
             outputs = n["outputs"]
             schema = n["schema"]["outputs"]
+            manifest_filename = Path(files_folder) / Path(prj_id) / Path(node_id)
             for output in outputs:
                 output_port = outputs[output]
                 if output in schema.keys():
                     if "data:" in schema[output]["type"]:
-                        print(output, output_port['path'], schema[output]['description'], schema[output]["type"])
+                        filename = Path(output_port['path']).name
+                        timestamp = str(datetime.now())
+                        desc = schema[output]['description']
+                        filetype = schema[output]["type"]
+                        _fd = FileDescriptor(filename, timestamp, desc, filetype)
+                        fd.add_descriptor(_fd)
+                        print(output, Path(output_port['path']).name, schema[output]['description'], schema[output]["type"])
+            fd.dump_to_csv(manifest_filename)
 
+def docs_manifest(study_fle: Path, docs_folder: Path):
+    # read the study and find all files referenced as outputs
+    with open(str(study_file)) as json_file:
+        data = json.load(json_file)
+        fd = FileDescriptors()
+        filename = data["example_image_filename"]
+        timestamp = str(datetime.now())
+        desc = data["example_image_description"]
+        filetype = "image/png"
+        _fd = FileDescriptor(filename, timestamp, desc, filetype)
+        fd.add_descriptor(_fd)
+        fd.dump_to_csv(docs_folder)
 
-#submission(study_folder)
-#dataset_description(study_folder, study_file)
+        
+submission(study_folder)
+dataset_description(study_folder, study_file)
 files_manifest(study_file, files_folder)
-aa
+docs_manifest(study_file, docs_folder)
 
-aa
 def recursive_upload(destination, files):
     dirs = [f for f in files if os.path.isdir(f)]
     files = [f for f in files if os.path.isfile(f)]
