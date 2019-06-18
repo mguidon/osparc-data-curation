@@ -1,1 +1,10 @@
-Optional text file that contains additional information of documentation about dataset
+Proposal for simcore metadata management.
+
+Use case: single-cell cardiac model
+
+Workflow consisting of three nodes:
+
+1. Filepicker for input file retrieval from datcore
+2. Computational service for running simulation with raw data output
+3. Postprocessing node for visualization and output of processed data
+

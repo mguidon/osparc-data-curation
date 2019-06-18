@@ -64,6 +64,17 @@
             "inputs": {},
             "inputNodes": [],
             "outputNode": false,
+            "schema": {
+                "inputs": {},
+                "outputs": {
+                    "outFile": {
+                        "label": "the output",
+                        "displayOrder": 0,
+                        "description": "a file",
+                        "type": "data:*/*"
+                    }
+                }
+            },
             "outputs": {
                 "outFile": {
                     "store": 1,
@@ -97,6 +108,121 @@
                 "48a16fba-e4fd-4dbb-97e4-d59dbec19a25"
             ],
             "outputNode": false,
+            "schema": {
+                "inputs": {
+                    "Na": {
+                        "label": "Na blocker drug concentration",
+                        "description": "Set Na blocker drug concentration",
+                        "type": "number",
+                        "displayOrder": 1,
+                        "fileToKeyMap": null,
+                        "defaultValue": 0,
+                        "widget": null
+                    },
+                    "Kr": {
+                        "label": "Kr blocker drug concentration",
+                        "description": "Set Kr blocker drug concentration",
+                        "type": "number",
+                        "displayOrder": 2,
+                        "fileToKeyMap": null,
+                        "defaultValue": 0,
+                        "widget": null
+                    },
+                    "BCL": {
+                        "label": "Basic Cycle Length (BCL)",
+                        "description": "Set Basic Cycle Length (BCL)",
+                        "type": "integer",
+                        "displayOrder": 3,
+                        "fileToKeyMap": null,
+                        "defaultValue": 200,
+                        "widget": null
+                    },
+                    "NBeats": {
+                        "label": "Number of beats",
+                        "description": "Set Number of beats",
+                        "type": "integer",
+                        "displayOrder": 4,
+                        "fileToKeyMap": null,
+                        "defaultValue": 5,
+                        "widget": null
+                    },
+                    "Ligand": {
+                        "label": "Ligand concentration",
+                        "description": "Set Ligand concentration ",
+                        "type": "number",
+                        "displayOrder": 5,
+                        "fileToKeyMap": null,
+                        "defaultValue": 0,
+                        "widget": null
+                    },
+                    "cAMKII": {
+                        "label": "Adjust cAMKII activity levels",
+                        "description": "Adjust cAMKII activity levels (expression = 'WT', 'OE', or 'KO')",
+                        "type": "string",
+                        "displayOrder": 6,
+                        "fileToKeyMap": null,
+                        "defaultValue": "WT",
+                        "widget": null
+                    },
+                    "initfile": {
+                        "label": "Intitial variables file ",
+                        "description": "Initial variables file corresponding to SS_rabbit_varNames.txt",
+                        "type": "data:*/*",
+                        "displayOrder": 7,
+                        "fileToKeyMap": {
+                            "initial_WTstates.txt": "initfile"
+                        },
+                        "defaultValue": null,
+                        "widget": null
+                    }
+                },
+                "outputs": {
+                    "out_1": {
+                        "label": "All results",
+                        "description": "All results",
+                        "type": "data:*/*",
+                        "displayOrder": 1,
+                        "fileToKeyMap": {
+                            "allresult_1Hz.txt": "out_1"
+                        },
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_2": {
+                        "label": "apds",
+                        "description": "apds",
+                        "type": "data:*/*",
+                        "displayOrder": 1,
+                        "fileToKeyMap": {
+                            "apds_1Hz.txt": "out_2"
+                        },
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_3": {
+                        "label": "final states",
+                        "description": "final states",
+                        "type": "data:*/*",
+                        "displayOrder": 1,
+                        "fileToKeyMap": {
+                            "finalStates.txt": "out_3"
+                        },
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_4": {
+                        "label": "vm",
+                        "description": "vm",
+                        "type": "data:*/*",
+                        "displayOrder": 1,
+                        "fileToKeyMap": {
+                            "vm_1Hz.txt": "out_4"
+                        },
+                        "defaultValue": null,
+                        "widget": null
+                    }
+                }
+            },
             "outputs": {
                 "out_3": {
                     "store": "0",
@@ -140,6 +266,201 @@
                 "a332d124-787a-4961-8764-ea2d3996fa68"
             ],
             "outputNode": false,
+            "schema": {
+                "inputs": {
+                    "vm_1Hz": {
+                        "label": "vm 1Hz",
+                        "description": "Computed values from the solver",
+                        "type": "data:*/*",
+                        "displayOrder": 0,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "all_results_1Hz": {
+                        "label": "all results 1Hz",
+                        "description": "Computed values from the solver",
+                        "type": "data:*/*",
+                        "displayOrder": 1,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    }
+                },
+                "outputs": {
+                    "out_1": {
+                        "label": "Membrane Potential",
+                        "description": "Membrane Potential csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 0,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_2": {
+                        "label": "LCC current",
+                        "description": "LCC current csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 1,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_3": {
+                        "label": "CaSRT",
+                        "description": "CaSRT csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 2,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_4": {
+                        "label": "Ca Dyad",
+                        "description": "Ca Dyad csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 3,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_5": {
+                        "label": "Ca sl",
+                        "description": "Ca sl csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 4,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_6": {
+                        "label": "Cai",
+                        "description": "Cai csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 5,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_7": {
+                        "label": "Ito",
+                        "description": "Ito csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 6,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_8": {
+                        "label": "INa",
+                        "description": "INa csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 7,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_9": {
+                        "label": "IKs",
+                        "description": "IKs csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 8,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_10": {
+                        "label": "ICFTR",
+                        "description": "ICFTR csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 9,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_11": {
+                        "label": "IKr",
+                        "description": "IKr csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 10,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_12": {
+                        "label": "IK1",
+                        "description": "IK1 csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 11,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_13": {
+                        "label": "Naj",
+                        "description": "Naj csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 12,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_14": {
+                        "label": "Nas",
+                        "description": "Nas csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 13,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_15": {
+                        "label": "Nal",
+                        "description": "Nal csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 14,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_16": {
+                        "label": "Incx",
+                        "description": "Incx csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 15,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_17": {
+                        "label": "JRyR",
+                        "description": "JRyR csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 16,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_18": {
+                        "label": "Passive Leak",
+                        "description": "Passive Leak csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 17,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    },
+                    "out_19": {
+                        "label": "SR Ca release",
+                        "description": "SR Ca release csv",
+                        "type": "data:text/csv",
+                        "displayOrder": 18,
+                        "fileToKeyMap": null,
+                        "defaultValue": null,
+                        "widget": null
+                    }
+                }
+            },
             "outputs": {
                 "out_1": {
                     "store": "0",
